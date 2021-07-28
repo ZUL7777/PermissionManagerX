@@ -22,7 +22,9 @@ public class HelpActivity extends BaseActivity {
   private WebSettings mWebSettings;
   private final MySettings mMySettings = MySettings.getInstance();
 
-  private static final String URL = "https://mirfatif.github.io/PermissionManagerX/help/";
+  private static final String HELP_URL = "https://mirfatif.github.io/PermissionManagerX/help/";
+  private static final String CONTACT_URL =
+      "https://github.com/mirfatif/PermissionManagerX#contact-us";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +57,7 @@ public class HelpActivity extends BaseActivity {
       b.webView.clearCache(true);
     }
 
-    b.webView.loadUrl(URL + Utils.getString(R.string.help_file_name));
+    b.webView.loadUrl(HELP_URL + Utils.getString(R.string.help_file_name));
   }
 
   @SuppressLint("SetJavaScriptEnabled")
@@ -106,12 +108,12 @@ public class HelpActivity extends BaseActivity {
     @Override
     public boolean shouldOverrideUrlLoading(@NonNull WebView view, WebResourceRequest request) {
       String url = request.getUrl().toString();
-      if ((url.startsWith("http://") || url.startsWith("https://")) && !url.startsWith(URL)) {
-        Utils.openWebUrl(HelpActivity.this, url);
+      if (url.equals(CONTACT_URL)) {
+        startActivity(new Intent(App.getContext(), AboutActivity.class));
         return true;
       }
-      if (url.startsWith("activity://") && url.contains("about")) {
-        startActivity(new Intent(App.getContext(), AboutActivity.class));
+      if ((url.startsWith("http://") || url.startsWith("https://")) && !url.startsWith(HELP_URL)) {
+        Utils.openWebUrl(HelpActivity.this, url);
         return true;
       }
       return super.shouldOverrideUrlLoading(view, request);

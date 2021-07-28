@@ -72,3 +72,8 @@ You **CANNOT** use and distribute the app icon in anyway, except for **Permissio
 
     You should have received a copy of the Affero GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+## Contact Us
+
+**Email:** mirfatif@gmail.com  
+**Telegram:** https://t.me/PermissionManagerX

@@ -25,17 +25,24 @@
         }
 
         img {
-            width: 100%;
+            width: 60%;
+            height: auto;
         }
     </style>
+
     <script>
-        document.write("<style> ");
-        document.write("a { color: " + Android.getLinkColor() + ";}");
-        document.write("ul { padding-left: " + Android.getBulletPadding() + ";}");
-        document.write("p { margin-top: " + Android.getParaMargin() + ";");
-        document.write("margin-bottom: " + Android.getParaMargin() + ";}");
-        document.write("img { max-width: " + Android.getImgMaxWidth() + ";}");
-        document.write("</style>");
+        if (window.Android) {
+            document.write("<style> ");
+            document.write("a { color: " + Android.getLinkColor() + ";}");
+            document.write("ul { padding-left: " + Android.getBulletPadding() + ";}");
+            document.write("p { margin-top: " + Android.getParaMargin() + ";");
+            document.write("margin-bottom: " + Android.getParaMargin() + ";}");
+            document.write("img { width: 100%;");
+            document.write("max-width: " + Android.getImgMaxWidth() + ";}");
+            document.write("</style>");
+        } else {
+
+        }
     </script>
 </head>
 
@@ -278,7 +285,8 @@
     <hr>
 
     <h2>Want more help?</h2>
-    <p>Please <a href="activity://about">contact us</a> via email or Telegram.</p>
+    <p>Please <a href="https://github.com/mirfatif/PermissionManagerX#contact-us">contact us</a> via email or Telegram.
+    </p>
 
 </body>
 
